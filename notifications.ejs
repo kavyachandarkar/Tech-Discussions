@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Notifications</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <h1>Notifications for <%= username %></h1>
+
+  <% if (notifications.length === 0) { %>
+    <p>No notifications yet.</p>
+  <% } else { %>
+    <ul>
+      <% for (var i = 0; i < notifications.length; i++) { 
+           var n = notifications[i];
+      %>
+        <li>
+          <strong><%= (n.type || "You commented on the post").toUpperCase() %>:</strong>
+        </li>
+      <% } %>
+    </ul>
+  <% } %>
+
+  <br />
+  <a href="/posts">Back to posts</a>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    h1 {
+      color: #004080;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #003366;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004d99;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    p {
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <% if (currentUser) { %>
+      <h1>You are already logged in as <%= currentUser.username %></h1>
+      <p><a href="/logout">Logout</a></p>
+      <p><a href="/posts">Go to Posts</a></p>
+    <% } else { %>
+      <h1>Sign Up</h1>
+      <form action="/signup" method="POST">
+        <label>Username:</label>
+        <input name="username" required>
+        <label>Email:</label>
+        <input type="email" name="email">
+        <label>Phone:</label>
+        <input name="phone">
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="/login">Log in here</a></p>
+    <% } %>
+  </div>
+</body>
+</html>

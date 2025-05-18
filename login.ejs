@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+</head>
+<body class="has-background-light">
+  <section class="section">
+    <div class="container">
+      <% if (currentUser) { %>
+        <div class="notification is-primary">
+          <h1 class="title is-3">Welcome back, <%= currentUser.username %>!</h1>
+          <p><a class="button is-link is-light" href="/logout">Logout</a></p>
+          <p><a class="button is-link" href="/posts">Go to Posts</a></p>
+        </div>
+      <% } else { %>
+        <div class="box">
+          <h1 class="title is-3 has-text-link">Login</h1>
+          <form action="/login" method="POST">
+            <div class="field">
+              <label class="label">Username</label>
+              <div class="control">
+                <input class="input" type="text" name="username" required>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input class="input" type="password" name="password" required>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button class="button is-link">Login</button>
+              </div>
+            </div>
+          </form>
+          <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+        </div>
+      <% } %>
+    </div>
+  </section>
+</body>
+</html>

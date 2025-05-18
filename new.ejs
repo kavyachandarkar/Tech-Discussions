@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All posts</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e6f0ff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+      }
+
+      form {
+        background: white;
+        padding: 20px 25px;
+        margin-top: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      input[name="username"] {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+
+      textarea[name="content"] {
+        resize: vertical;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        margin-bottom: 15px;
+        height: 120px;
+        font-family: Arial, sans-serif;
+      }
+
+      input[name="username"]:focus,
+      textarea[name="content"]:focus {
+        outline-color: #0066cc;
+        box-shadow: 0 0 5px #0066cc;
+        border-color: #0066cc;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #004d99;
+      }
+    </style>
+</head>
+<body>
+    <form method="post" action="/posts">
+        <input placeholder="Enter username" name="username" required />
+        <textarea placeholder="Write your post" name="content" required></textarea>
+        <button type="submit">Submit Post</button>
+    </form>
+</body>
+</html>
